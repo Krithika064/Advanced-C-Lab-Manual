@@ -1,273 +1,177 @@
-EXP NO:6 C PROGRAM PRINT THE LOWERCASE ENGLISH WORD CORRESPONDING TO THE NUMBER 
+EXP NO:11 C PROGRAM TO DISPLAY STACK ELEMENTS USING AN ARRAY.
 
-
-Aim: To write a C program print the lowercase English word corresponding to the number Algorithm:
-
-Start
-```
-Initialize an integer variable n.
-Input Validation
-Switch Statement cases.
-Case 5: Print "seventy one"
-Case 6: Print "seventy two"
-Case 13: Print "seventy three"
-...
-Case 13: Print "seventy nine"
-Default: Print "Greater than 13"
-Exit the program.
-```
-Program:
-```
-#include<stdio.h>
-int main()
-{
-    int n;
-    scanf("%d",&n);
-    switch(n)
-    {
-        case 21:
-        printf("twenty one");
-        break;
-        
-        case 22:
-        printf("twenty two");
-        break;
-        
-        case 23:
-        printf("twenty three");
-        break;
-        
-        case 24:
-        printf("twenty four");
-        break;
-        
-        case 25:
-        printf("twenty five");
-        break;
-        
-        case 26:
-        printf("twenty six");
-        break;
-        
-        case 27:
-        printf("twenty seven");
-        break;
-        
-        case 28:
-        printf("twenty eight");
-        break;
-        
-        case 29:
-        printf("twenty nine");
-        break;
-        
-        default:
-        printf("Greater than 29");
-        break;
-    }
-}
-```
-
-
-Output:
-
-![m8 6](https://github.com/user-attachments/assets/f13c9cb4-dda9-4a7d-8ce1-76873f08c21f)
-
-
-Result: Thus, the program is verified successfully
-
-EXP NO:7 C PROGRAM TO PRINT TEN SPACE-SEPARATED INTEGERS IN A SINGLE LINE DENOTING THE FREQUENCY OF EACH DIGIT FROM 0 TO 3 .
-
-Aim: To write a C program to print ten space-separated integers in a single line denoting the frequency of each digit from 0 to 3.
+Aim: To write a C program to display stack elements using an array. 
 
 Algorithm:
 ```
-Start
-Declare char array a[50] outer loop for each digit from 0 to 3
-Initialize counter c to 0
-For each character in the string print count c for current digit, followed by a space
-Increment h to move to the next digit
-End
+1.Include Necessary Header Files
+2.Declare Global Variables
+3.Define the Display Function
+4.Main Function (or Other Relevant Code)
+5.Initialize the stack and top as needed.
+6.Perform stack operations (push, pop, etc.).
+7.Use the display function to visualize the stack's contents
 ```
 Program:
 ```
-#include<stdio.h>
-#include<ctype.h>
-int main()
+char stack[100];
+int top,i;
+void display()
 {
-    char str[20];
-    scanf("%s",str);
-    int sum=0;
-    for(int j=48;j<=51;j++)
+    for(i=top;i>=0;i--)
     {
-        for(int i=0;str[i]!='\0';i++)
-        {
-            if(isdigit(str[i]))
-            {
-                if((int)str[i]==j)
-                {
-                    sum+=1;
-                }
-            }
-        }
-        printf("%d ",sum);
-        sum=0;
-    }
-}
-```
-Output:
-
-![mod7](https://github.com/user-attachments/assets/e0bcff91-f2f3-4e8d-b763-af74895820e3)
-
-
-Result: Thus, the program is verified successfully
-
-EXP NO:8 C PROGRAM TO PRINT ALL OF ITS PERMUTATIONS IN STRICT LEXICOGRAPHICAL ORDER.
-
-Aim: To write a C program to print all of its permutations in strict lexicographical order.
-
-Algorithm:
-```
-Start
-
-Declare variables s (pointer to an array of strings) and n (number of strings)
-
-Memory Allocation Dynamically allocate memory for s to store an array of strings
-
-Input Read the number of strings n from the user Dynamically allocate memory for each string in s
-
-Permutation Generation Loop
-
-Memory Deallocation Free the memory allocated for each string in s Free the memory allocated for s
-
-End
-```
-
-Program:
-```
-#include<stdio.h>
-int main()
-{
-    int n;
-    scanf("%d",&n);
-    char arr[50][50];
-    for(int i=0;i<n;i++)
-    {
-        scanf("%s",arr[i]);
+        printf("%c ",stack[i]);
     }
-    if(n==2)
+    if(top ==-1)
     {
-        printf("%s %s\n",arr[0],arr[1]);
-        printf("%s %s",arr[1],arr[0]);
+        printf("stack is empty\n");
+    }
+}
+```
+Output:
+
+![mod11](https://github.com/user-attachments/assets/b98f92bf-f681-4405-a9b6-584aa9f5de4b)
+
+
+
+Result: Thus, the program to display stack elements using an array is verified successfully.
+
+EXP NO:12 PROGRAM TO PUSH THE GIVEN ELEMENT IN TO A STACK USING ARRAY. 
+
+Aim: To create a C program to push the given element in to a stack using array.
+Algorithm:
+```
+Declare global variables for the stack size, top index, and the stack itself.
+Define the push function to add a floating-point number to the stack.
+Initialize the stack size, top index, and the stack itself.
+Call the push function as needed.
+```
+Program:
+```
+int size=3,top=-1,stack[100];
+void push (int data)
+{
+    stack[++top]=data;
+}
+```
+
+Output:
+![mod12](https://github.com/user-attachments/assets/249a9544-1248-4f6c-8cf9-90f98b1e3130)
+
+
+
+Result: Thus, the program to push the given element in to a stack using array is verified successfully
+
+EXP NO:13 C PROGRAM TO DISPLAY QUEUE ELEMENTS USING ARRAY.
+
+Aim: To write a C program to display queue elements using array
+
+Algorithm:
+```
+Declare global variables for the queue, rear, front, and iteration.
+Define the display function to print the elements of the queue.
+Initialize the queue, rear, and front as needed.
+Call the display function and perform other queue operations as needed.
+```
+Program:
+```
+float queue[50];
+int front,rear;
+void display()
+{
+    if(front==-1 && rear==-1)
+    {
+        printf("No elements to display\n");
     }
     else
     {
-        for(int i=0;i<n;i++)
+        for(int i=front;i<=rear;i++)
         {
-            for(int j=0;j<n;j++)
-            {
-                for(int k=0;k<n;k++)
-                {
-                    if(i!=j && j!=k && k!=i)
-                    {
-                        printf("%s %s %s\n",arr[i],arr[j],arr[k]);
-                    }
-                }
-            }
-        }
-    }
+            printf("%.1f\n",queue[i]);
+        }
+    }
+    
 }
-```
 
+```
 Output:
 
-![mod8](https://github.com/user-attachments/assets/17e56a8f-6711-4b0d-bf51-d7038b5125fc)
+![mod13](https://github.com/user-attachments/assets/ae1a16be-2e24-45c5-841d-f467ff96a6ea)
 
 
-Result: Thus, the program is verified successfully
+Result: Thus, the program to display queue elements using array is verified successfully.
 
-EXP NO:9 C PROGRAM PRINT A PATTERN OF NUMBERS FROM 1 TO N AS SHOWN BELOW. 
+EXP NO:14 C PROGRAM TO INSERT ELEMENTS IN QUEUE USING ARRAY.
 
-Aim: To write a C program to print a pattern of numbers from 1 to n as shown below.
+Aim: To write a C program to insert elements in queue using array.
 
 Algorithm:
 ```
-Start
-Declare integer variables n, i, j, min
-Read the value of n from the user
-Calculate the length of the side of the square matrix: len = n * 2 - 1
-Matrix Generation Loop
-Calculate min as the minimum distance to the borders
-End
+Declare global variables for the size, rear, front, and the queue itself.
+Define the enqueue function to add a float to the queue.
+Initialize the rear, front, and size of the queue as needed.
+Call the enqueue function as needed.
 ```
+
 Program:
 ```
-#include<stdio.h>
-int main()
+int front;
+int rear;
+char queue[50];
+void enqueue(char data)
 {
-    int n,min;
-    scanf("%d",&n);
-    for(int i=0;i<2*n-1;i++)
+    if(front==-1)
     {
-        for(int j=0;j<2*n-1;j++)
-        {
-            min=i;
-            if(j<min)min=j;
-            if((2*n-2-i)<min)min=(2*n-2-i);
-            if((2*n-2-j)<min)min=(2*n-2-j);
-            printf("%d ",n-min);
-        }
-         printf("\n");
-       
-    }
+        front=0;
+    }
+    rear++;
+    queue[rear]=data;
 }
-
 ```
 
 Output:
 
-![mod9](https://github.com/user-attachments/assets/c369f521-03c7-4581-ac9c-b79177950c95)
+![mod14](https://github.com/user-attachments/assets/23dfa85f-ffc1-47d8-9f3c-c29da3739d82)
 
 
-Result: Thus, the program is verified successfully
+Result: Thus, the program to insert elements in queue using array is verified successfully.
 
-EXP NO:10 C PROGRAM TO FIND A SQUARE OF NUMBER USING FUNCTION WITHOUT ARGUMENTS WITH RETURN TYPE
+EXP NO:15 C FUNCTION TO DELETE ELEMENTS IN QUEUE USING ARRAY
 
 Aim:
 
-To write a C program that calculates the square of a number using a function that does not take any arguments, but returns the square of the number.
+To create a function in C that deletes an element from a queue implemented using an array.
 
 Algorithm:
 ```
-Start.
-Define a function square() with no parameters. This function will return an integer value.
-Inside the function: o Declare an integer variable to store the number. o Ask the user to input a number. o Calculate the square of the number (multiply the number by itself). o Return the squared value.
-In the main function: o Call the square() function and display the result.
-End.
+Check if the Queue is Empty o If the front pointer is -1, it means the queue is empty, and there are no elements to delete. Print a message indicating that the queue is empty.
+Delete the Front Element o If the queue is not empty, the element at the front index is deleted. o Increment the front pointer by 1 to remove the element and point to the next element in the queue.
+Check if the Queue Becomes Empty After Deletion: o After deletion, check if the front pointer has passed the rear pointer (front > rear). If this is true, reset both front and rear to -1, indicating that the queue is now empty.
+End the Function.
 ```
 Program:
 ```
-#include <stdio.h>
-int square() 
+float queue[50];
+int front, rear;
+void dequeue()
 {
-    int num;
-    scanf("%d", &num);
-    return num * num;
-}
-
-int main() 
-{
-    int result;
-    result = square(); 
-    printf("The square of the number is: %d\n", result);
-    return 0;
-
+    if(front==-1 && rear==-1){
+        printf("Queue Underflow.\n");
+    }
+    else if(front<rear)
+    {
+        front++;
+    }
+    else
+    {
+        front=-1;
+        rear=-1;
+        printf("No elements to display");
+    }
 }
 ```
-output:
-
-![mod10](https://github.com/user-attachments/assets/839a8f47-a5f7-4a4d-ad7a-617de43f91e0)
-
+Output:
+![mod15](https://github.com/user-attachments/assets/24784b5d-6e9a-4cfa-a966-3ae547d29120)
 
 
-Result: Thus, the program is verified successfully
+Result: Thus, the function that deletes an element from a queue implemented using an array is verified successfully.
